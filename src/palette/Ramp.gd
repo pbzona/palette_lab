@@ -49,6 +49,9 @@ func draw_ramp() -> void:
 		new_color_cell.set_color(c)
 		$CellContainer.add_child(new_color_cell)
 
+func set_shift(s) -> void:
+	self.state.set_shift(s)
+
 func _on_SelectButton_pressed():
 	emit_signal("RAMP_SELECTED", self)
 

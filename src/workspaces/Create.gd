@@ -8,6 +8,8 @@ onready var shift_tools = $Container/ShiftTools
 
 func _ready():
 	connect_all_signals()
+	self.shift = shift_tools.shift
+	set_shift(self.shift)
 
 func connect_all_signals() -> void:
 	color_tools.connect("CHANGE_LEFT_COLOR", self, "on_left_color_changed")
@@ -15,7 +17,7 @@ func connect_all_signals() -> void:
 	
 	palette.connect("ACTIVE_RAMP_CHANGED", self, "update_pickers")
 	
-	shift_tools.connect("SHIFT_OBJ_CREATED", self, "set_shift")
+	shift_tools.connect("SHIFT_CHANGE", self, "on_shift_change")
 
 func on_left_color_changed(c : Color) -> void:
 	if palette.active_ramp:
@@ -33,4 +35,7 @@ func update_pickers() -> void:
 	color_tools.set_picker_colors(left, right)
 	
 func set_shift(s) -> void:
-	self.shift = s
+	palette.active_ramp.set_shift(s)
+
+func on_shift_change() -> void:
+	palette.active_ramp.update_ui()

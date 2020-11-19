@@ -4,6 +4,7 @@ const Ramp = preload("res://src/palette/Ramp.tscn")
 onready var RampContainer = $ScrollBox/RampContainer
 
 var active_ramp = null
+var shift = null
 
 signal ACTIVE_RAMP_CHANGED
 
