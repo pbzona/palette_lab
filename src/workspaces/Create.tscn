@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/palette/Palette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/toolbars/ColorTools.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/workspaces/Create.gd" type="Script" id=3]
+[ext_resource path="res://src/toolbars/ShiftTools.tscn" type="PackedScene" id=4]
 
 [node name="Create" type="Control"]
 anchor_right = 1.0
@@ -28,9 +29,4 @@ __meta__ = {
 [node name="Palette" parent="Container" instance=ExtResource( 1 )]
 margin_left = 280.0
 
-[node name="ColorRect3" type="ColorRect" parent="Container"]
-margin_left = 1152.0
-margin_right = 1408.0
-margin_bottom = 808.0
-rect_min_size = Vector2( 256, 0 )
-color = Color( 0.854902, 0.592157, 0.137255, 0 )
+[node name="ShiftTools" parent="Container" instance=ExtResource( 4 )]

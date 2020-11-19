@@ -1,0 +1,264 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/label_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Righteous-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="ShiftTools" type="Control"]
+margin_left = 1152.0
+margin_right = 1408.0
+margin_bottom = 808.0
+rect_min_size = Vector2( 256, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.1, 0.1, 0.1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShiftLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -72.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "Shift"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 64.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HueControl" type="Control" parent="ControlContainer"]
+margin_right = 256.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="HueLabel" type="Label" parent="ControlContainer/HueControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Hue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HueSlider" type="HSlider" parent="ControlContainer/HueControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -24.0
+margin_right = 112.0
+margin_bottom = -8.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaturationControl" type="Control" parent="ControlContainer"]
+margin_top = 76.0
+margin_right = 256.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="SaturationLabel" type="Label" parent="ControlContainer/SaturationControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Saturation"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaturationSlider" type="HSlider" parent="ControlContainer/SaturationControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = -12.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueControl" type="Control" parent="ControlContainer"]
+margin_top = 152.0
+margin_right = 256.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="ValueLabel" type="Label" parent="ControlContainer/ValueControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Value"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueSlider" type="HSlider" parent="ControlContainer/ValueControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = -12.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedControl" type="Control" parent="ControlContainer"]
+margin_top = 228.0
+margin_right = 256.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="RedLabel" type="Label" parent="ControlContainer/RedControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Red"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedSlider" type="HSlider" parent="ControlContainer/RedControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = -12.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenControl" type="Control" parent="ControlContainer"]
+margin_top = 304.0
+margin_right = 256.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="GreenLabel" type="Label" parent="ControlContainer/GreenControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "Green"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenSlider" type="HSlider" parent="ControlContainer/GreenControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = -12.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueControl" type="Control" parent="ControlContainer"]
+margin_top = 380.0
+margin_right = 256.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="BlueLabel" type="Label" parent="ControlContainer/BlueControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 8.0
+margin_right = 64.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "Blue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueSlider" type="HSlider" parent="ControlContainer/BlueControl"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -28.0
+margin_right = 112.0
+margin_bottom = -12.0
+min_value = -1.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
