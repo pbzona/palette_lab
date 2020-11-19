@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/palette/Palette.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/toolbars/ColorTools.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/workspaces/Create.gd" type="Script" id=3]
+
+[node name="Create" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.902
+margin_right = 0.00012207
+margin_bottom = -0.192017
+rect_min_size = Vector2( 1408, 808 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorTools" parent="Container" instance=ExtResource( 2 )]
+
+[node name="Palette" parent="Container" instance=ExtResource( 1 )]
+margin_left = 280.0
+
+[node name="ColorRect3" type="ColorRect" parent="Container"]
+margin_left = 1152.0
+margin_right = 1408.0
+margin_bottom = 808.0
+rect_min_size = Vector2( 256, 0 )
+color = Color( 0.854902, 0.592157, 0.137255, 0 )

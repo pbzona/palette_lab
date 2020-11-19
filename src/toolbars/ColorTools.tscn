@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/label_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/toolbars/ColorTools.gd" type="Script" id=2]
+
+[node name="ColorTools" type="Control"]
+margin_right = 280.0
+margin_bottom = 808.0
+rect_min_size = Vector2( 280, 0 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.1, 0.1, 0.1, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftColorContainer" type="Control" parent="VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 0, 400 )
+
+[node name="LeftColorLabel" type="Label" parent="VBoxContainer/LeftColorContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -32.0
+margin_top = 8.0
+margin_right = 32.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "Left"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftColorPicker" type="ColorPicker" parent="VBoxContainer/LeftColorContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -140.0
+margin_right = 212.0
+margin_bottom = 344.0
+rect_scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightColorContainer" type="Control" parent="VBoxContainer"]
+margin_top = 404.0
+margin_right = 280.0
+margin_bottom = 804.0
+rect_min_size = Vector2( 0, 400 )
+
+[node name="RightColorLabel" type="Label" parent="VBoxContainer/RightColorContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.0
+margin_top = -4.0
+margin_right = 40.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightColorPicker" type="ColorPicker" parent="VBoxContainer/RightColorContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -152.0
+margin_right = 207.0
+margin_bottom = 332.0
+rect_scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="color_changed" from="VBoxContainer/LeftColorContainer/LeftColorPicker" to="." method="_on_LeftColorPicker_color_changed"]
+[connection signal="color_changed" from="VBoxContainer/RightColorContainer/RightColorPicker" to="." method="_on_RightColorPicker_color_changed"]
