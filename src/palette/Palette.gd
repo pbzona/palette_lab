@@ -31,7 +31,7 @@ func _make_ramp_active(ramp):
 func _create_new_ramp() -> PackedScene:
 	var ramp = Ramp.instance()
 	ramp.connect("RAMP_DELETED", self, "delete_ramp")
-	ramp.connect("RAMP_SELECTED", self, "make_ramp_active")
+	ramp.connect("RAMP_SELECTED", self, "_make_ramp_active")
 	return ramp
 
 func delete_ramp(ramp) -> void:
