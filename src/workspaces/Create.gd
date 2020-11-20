@@ -31,7 +31,7 @@ func _update_pickers() -> void:
 	var right = palette.active_ramp.state.get_right_color()
 	color_tools.set_picker_colors(left, right)
 	
-func update_shift() -> void:
+func _update_shift() -> void:
 	shift_tools.set_shift(palette.active_ramp.shift)
 
 func _update_toolbars() -> void:
