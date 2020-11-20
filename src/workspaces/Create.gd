@@ -6,6 +6,7 @@ onready var shift_tools = $Container/ShiftTools
 
 func _ready():
 	connect_all_signals()
+	update_toolbars()
 
 func connect_all_signals() -> void:
 	color_tools.connect("CHANGE_LEFT_COLOR", self, "on_left_color_changed")
