@@ -2,6 +2,7 @@ extends Control
 
 signal RAMP_SELECTED(ramp)
 signal RAMP_DELETED(ramp)
+signal RAMP_MODIFIED
 
 const ColorCell = preload("res://src/palette/ColorCell.tscn")
 const RampState = preload("res://src/palette/RampState.gd")
@@ -29,6 +30,7 @@ func update_ui() -> void:
 	$CountLabel.text = str($CountSlider.value)
 	$CountSlider.value = state.get_count()
 	_draw_ramp()
+	emit_signal("RAMP_MODIFIED")
 	if state.is_active():
 		$Background.color = active_color
 		$DeleteButton.visible = true

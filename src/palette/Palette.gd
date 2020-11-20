@@ -1,6 +1,7 @@
 extends Control
 
 signal RAMP_CHANGED
+signal PALETTE_CHANGED
 
 const Ramp = preload("res://src/palette/Ramp.tscn")
 
@@ -27,15 +28,17 @@ func _make_ramp_active(ramp):
 			r.state.set_active(false)
 	ramp.state.set_active(true)
 	emit_signal("RAMP_CHANGED")
+	emit_signal("PALETTE_CHANGED", self)
 
 func _create_new_ramp() -> PackedScene:
 	var ramp = Ramp.instance()
-	ramp.connect("RAMP_DELETED", self, "delete_ramp")
+	ramp.connect("RAMP_DELETED", self, "_notify_watchers")
 	ramp.connect("RAMP_SELECTED", self, "_make_ramp_active")
+	ramp.connect("RAMP_MODIFIED", self, "_notify_watchers")
 	return ramp
 
-func delete_ramp(ramp) -> void:
-	pass
+func _notify_watchers() -> void:
+	emit_signal("PALETTE_CHANGED", self)
 
 func _add_ramp_to_ui(ramp) -> void:
 	$ScrollBox/RampContainer.add_child(ramp)

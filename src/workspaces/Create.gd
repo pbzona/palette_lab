@@ -1,5 +1,7 @@
 extends Control
 
+signal PALETTE_UPDATED
+
 onready var palette = $Container/Palette
 onready var color_tools = $Container/ColorTools
 onready var shift_tools = $Container/ShiftTools
@@ -13,6 +15,7 @@ func _connect_all_signals() -> void:
 	color_tools.connect("CHANGED_RIGHT_COLOR", self, "_on_right_color_changed")
 	
 	palette.connect("RAMP_CHANGED", self, "_update_toolbars")
+	palette.connect("PALETTE_CHANGED", self, "_on_palette_updated")
 	
 	shift_tools.connect("SHIFT_CHANGED", self, "_on_shift_change")
 
@@ -40,3 +43,6 @@ func _update_toolbars() -> void:
 
 func _on_shift_change() -> void:
 	palette.active_ramp.update_ui()
+
+func _on_palette_updated(palette) -> void:
+	emit_signal("PALETTE_UPDATED", palette)
