@@ -6,7 +6,7 @@ onready var RampContainer = $ScrollBox/RampContainer
 var active_ramp = null
 var shift = null
 
-signal ACTIVE_RAMP_CHANGED
+signal RAMP_CHANGED
 
 func _ready():
 	var default_ramp = create_new_ramp()
@@ -38,7 +38,7 @@ func make_ramp_active(ramp):
 		for r in RampContainer.get_children():
 			r.state.set_active(false)
 	ramp.state.set_active(true)
-	emit_signal("ACTIVE_RAMP_CHANGED")
+	emit_signal("RAMP_CHANGED")
 
 func _on_AddRampButton_pressed():
 	var ramp = create_new_ramp()

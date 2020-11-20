@@ -15,9 +15,9 @@ func connect_all_signals() -> void:
 	color_tools.connect("CHANGE_LEFT_COLOR", self, "on_left_color_changed")
 	color_tools.connect("CHANGE_RIGHT_COLOR", self, "on_right_color_changed")
 	
-	palette.connect("ACTIVE_RAMP_CHANGED", self, "update_pickers")
+	palette.connect("RAMP_CHANGED", self, "update_pickers")
 	
-	shift_tools.connect("SHIFT_CHANGE", self, "on_shift_change")
+	shift_tools.connect("SHIFT_CHANGED", self, "on_shift_change")
 
 func on_left_color_changed(c : Color) -> void:
 	if palette.active_ramp:
