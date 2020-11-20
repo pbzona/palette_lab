@@ -276,9 +276,19 @@ tick_count = 11
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ResetButton" type="Button" parent="ControlContainer"]
+margin_left = 68.0
+margin_top = 456.0
+margin_right = 188.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 4
+text = "Reset"
 [connection signal="value_changed" from="ControlContainer/HueControl/HueSlider" to="." method="_on_HueSlider_value_changed"]
 [connection signal="value_changed" from="ControlContainer/SaturationControl/SaturationSlider" to="." method="_on_SaturationSlider_value_changed"]
 [connection signal="value_changed" from="ControlContainer/ValueControl/ValueSlider" to="." method="_on_ValueSlider_value_changed"]
 [connection signal="value_changed" from="ControlContainer/RedControl/RedSlider" to="." method="_on_RedSlider_value_changed"]
 [connection signal="value_changed" from="ControlContainer/GreenControl/GreenSlider" to="." method="_on_GreenSlider_value_changed"]
 [connection signal="value_changed" from="ControlContainer/BlueControl/BlueSlider" to="." method="_on_BlueSlider_value_changed"]
+[connection signal="pressed" from="ControlContainer/ResetButton" to="." method="_on_ResetButton_pressed"]

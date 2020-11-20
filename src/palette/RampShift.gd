@@ -48,5 +48,11 @@ func get_blue() -> float:
 func set_blue(b : float) -> void:
 	self.blue = b
 
-
+func reset_all() -> void:
+	self.hue = 0
+	self.sat = 0
+	self.val = 0
+	self.red = 0
+	self.green = 0
+	self.blue = 0
 

@@ -17,31 +17,30 @@ func set_shift(s) -> void:
 	update_ui()
 
 func _on_HueSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_hue(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_hue(value)
+	emit_signal("SHIFT_CHANGED")
 
 func _on_SaturationSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_sat(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_sat(value)
+	emit_signal("SHIFT_CHANGED")
 
 func _on_ValueSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_val(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_val(value)
+	emit_signal("SHIFT_CHANGED")
 
 func _on_RedSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_red(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_red(value)
+	emit_signal("SHIFT_CHANGED")
 
 func _on_GreenSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_green(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_green(value)
+	emit_signal("SHIFT_CHANGED")
 
 func _on_BlueSlider_value_changed(value):
-	if self.shift:
-		self.shift.set_blue(value)
-		emit_signal("SHIFT_CHANGED")
+	self.shift.set_blue(value)
+	emit_signal("SHIFT_CHANGED")
+
+func _on_ResetButton_pressed():
+	self.shift.reset_all()
+	emit_signal("SHIFT_CHANGED")
+	update_ui()
