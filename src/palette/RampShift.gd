@@ -7,6 +7,11 @@ var red = 0
 var green = 0
 var blue = 0
 
+var Ramp = null
+
+func _init(ref) -> void:
+	self.Ramp = ref
+
 func get_hue() -> float:
 	return self.hue
 

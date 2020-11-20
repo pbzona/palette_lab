@@ -8,7 +8,6 @@ var left_base : Color
 var right_base : Color 
 
 var Ramp = null
-var shift = null
 
 func _init(ref):
 	self.Ramp = ref
@@ -82,12 +81,12 @@ func set_right_base(c : Color) -> void:
 	self.right_base = c
 
 func apply_shift(c : Color) -> Color:
-	if self.shift:
-		c.h += self.shift.get_hue()
-		c.s += self.shift.get_sat()
-		c.v += self.shift.get_val()
-		c.r += self.shift.get_red()
-		c.g += self.shift.get_green()
-		c.b += self.shift.get_blue()
+	if Ramp.shift:
+		c.h += Ramp.shift.get_hue()
+		c.s += Ramp.shift.get_sat()
+		c.v += Ramp.shift.get_val()
+		c.r += Ramp.shift.get_red()
+		c.g += Ramp.shift.get_green()
+		c.b += Ramp.shift.get_blue()
 	return c
 	

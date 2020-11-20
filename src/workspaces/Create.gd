@@ -1,21 +1,17 @@
 extends Control
 
-var shift = null
-
 onready var palette = $Container/Palette
 onready var color_tools = $Container/ColorTools
 onready var shift_tools = $Container/ShiftTools
 
 func _ready():
 	connect_all_signals()
-	self.shift = shift_tools.shift
-	set_shift(self.shift)
 
 func connect_all_signals() -> void:
 	color_tools.connect("CHANGE_LEFT_COLOR", self, "on_left_color_changed")
 	color_tools.connect("CHANGE_RIGHT_COLOR", self, "on_right_color_changed")
 	
-	palette.connect("RAMP_CHANGED", self, "update_pickers")
+	palette.connect("RAMP_CHANGED", self, "update_toolbars")
 	
 	shift_tools.connect("SHIFT_CHANGED", self, "on_shift_change")
 
@@ -34,8 +30,12 @@ func update_pickers() -> void:
 	var right = palette.active_ramp.state.get_right_color()
 	color_tools.set_picker_colors(left, right)
 	
-func set_shift(s) -> void:
-	palette.active_ramp.set_shift(s)
+func update_shift() -> void:
+	shift_tools.set_shift(palette.active_ramp.shift)
+
+func update_toolbars() -> void:
+	update_pickers()
+	update_shift()
 
 func on_shift_change() -> void:
 	palette.active_ramp.update_ui()

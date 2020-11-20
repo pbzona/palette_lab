@@ -2,6 +2,7 @@ extends Control
 
 const ColorCell = preload("res://src/palette/ColorCell.tscn")
 const RampState = preload("res://src/palette/RampState.gd")
+const RampShift = preload("res://src/palette/RampShift.gd")
 
 const default_color = Color(0, 0, 0, 0)
 const active_color = Color(.244, .244, .244, 1)
@@ -12,12 +13,14 @@ const default_ramp = [
 ]
 
 var state = null
+var shift = null
 
 signal RAMP_SELECTED(ramp)
 signal RAMP_DELETED(ramp)
 
 func _init():
 	state = RampState.new(self)
+	shift = RampShift.new(self)
 	
 func _ready():
 	initialize_ramp()
@@ -48,9 +51,6 @@ func draw_ramp() -> void:
 		var new_color_cell = ColorCell.instance()
 		new_color_cell.set_color(c)
 		$CellContainer.add_child(new_color_cell)
-
-func set_shift(s) -> void:
-	self.state.set_shift(s)
 
 func _on_SelectButton_pressed():
 	emit_signal("RAMP_SELECTED", self)
