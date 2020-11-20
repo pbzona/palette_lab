@@ -1,22 +1,34 @@
 extends Control
 
+signal RAMP_CHANGED
+
 const Ramp = preload("res://src/palette/Ramp.tscn")
-onready var RampContainer = $ScrollBox/RampContainer
 
 var active_ramp = null
 var shift = null
 
-signal RAMP_CHANGED
+onready var RampContainer = $ScrollBox/RampContainer
 
 func _ready():
-	var default_ramp = create_new_ramp()
-	make_ramp_active(default_ramp)
-	add_ramp_to_ui(default_ramp)
+	var default_ramp = _create_new_ramp()
+	_make_ramp_active(default_ramp)
+	_add_ramp_to_ui(default_ramp)
 
 func update_ui() -> void:
 	pass
 
-func create_new_ramp() -> PackedScene:
+func get_all_ramps() -> Array:
+	return RampContainer.get_children()
+
+func _make_ramp_active(ramp):
+	self.active_ramp = ramp
+	if len(get_all_ramps()) > 0:
+		for r in RampContainer.get_children():
+			r.state.set_active(false)
+	ramp.state.set_active(true)
+	emit_signal("RAMP_CHANGED")
+
+func _create_new_ramp() -> PackedScene:
 	var ramp = Ramp.instance()
 	ramp.connect("RAMP_DELETED", self, "delete_ramp")
 	ramp.connect("RAMP_SELECTED", self, "make_ramp_active")
@@ -25,22 +37,11 @@ func create_new_ramp() -> PackedScene:
 func delete_ramp(ramp) -> void:
 	pass
 
-func add_ramp_to_ui(ramp) -> void:
+func _add_ramp_to_ui(ramp) -> void:
 	$ScrollBox/RampContainer.add_child(ramp)
 	update_ui()
-	
-func get_all_ramps() -> Array:
-	return RampContainer.get_children()
-
-func make_ramp_active(ramp):
-	self.active_ramp = ramp
-	if len(get_all_ramps()) > 0:
-		for r in RampContainer.get_children():
-			r.state.set_active(false)
-	ramp.state.set_active(true)
-	emit_signal("RAMP_CHANGED")
 
 func _on_AddRampButton_pressed():
-	var ramp = create_new_ramp()
-	add_ramp_to_ui(ramp)
-	make_ramp_active(ramp)
+	var ramp = _create_new_ramp()
+	_add_ramp_to_ui(ramp)
+	_make_ramp_active(ramp)

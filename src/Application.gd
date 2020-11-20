@@ -1,13 +1,11 @@
 extends VBoxContainer
 
 func _ready():
-	$Header.connect("CREATE", self, "set_create_mode")
-	$Header.connect("EXPORT", self, "set_export_mode")
+	$Header.connect("SELECTED_CREATE", self, "_on_select_create")
+	$Header.connect("SELECTED_EXPORT", self, "_on_select_export")
 
-func set_create_mode() -> void:
-	print('create - app')
+func _on_select_create() -> void:
 	$Workspace.set_create_tab()
 
-func set_export_mode() -> void:
-	print('export - app')
+func _on_select_export() -> void:
 	$Workspace.set_export_tab()

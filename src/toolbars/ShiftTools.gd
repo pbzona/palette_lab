@@ -1,8 +1,8 @@
 extends Control
 
-var shift = null
-
 signal SHIFT_CHANGED
+
+var shift = null
 
 func update_ui() -> void:
 	$ControlContainer/HueControl/HueSlider.value = self.shift.get_hue()
