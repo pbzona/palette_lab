@@ -39,25 +39,15 @@ func set_colors(new_colors : Array) -> void:
 
 func update_colors() -> void:
 	if len(self.colors) > 0:
-		var new_colors = calculate_linear_ramp()
+		var new_colors = _calculate_linear_ramp()
 		set_colors(new_colors)
-
-func calculate_linear_ramp(start = get_left_base(), end = get_right_base()) -> Array:
-	var result = [apply_shift(start)]
-	var levels = get_count() - 2
-	for i in levels:
-		var factor = float(i + 1) / float(get_count() - 1)
-		var new_color = start.linear_interpolate(end, factor)
-		result.append(apply_shift(new_color))
-	result.append(apply_shift(end))
-	return result
 
 func get_left_color() -> Color:
 	return self.colors[0]
 
 func set_left_color(c : Color) -> void:
 	set_left_base(c)
-	var new_colors = calculate_linear_ramp(c, get_right_base())
+	var new_colors = _calculate_linear_ramp(c, get_right_base())
 	set_colors(new_colors)
 
 func get_right_color() -> Color:
@@ -65,7 +55,7 @@ func get_right_color() -> Color:
 	
 func set_right_color(c : Color) -> void:
 	set_right_base(c)
-	var new_colors = calculate_linear_ramp(get_left_base(), c)
+	var new_colors = _calculate_linear_ramp(get_left_base(), c)
 	set_colors(new_colors)
 	
 func get_left_base() -> Color:
@@ -80,7 +70,17 @@ func get_right_base() -> Color:
 func set_right_base(c : Color) -> void:
 	self.right_base = c
 
-func apply_shift(c : Color) -> Color:
+func _calculate_linear_ramp(start = get_left_base(), end = get_right_base()) -> Array:
+	var result = [_apply_shift(start)]
+	var levels = get_count() - 2
+	for i in levels:
+		var factor = float(i + 1) / float(get_count() - 1)
+		var new_color = start.linear_interpolate(end, factor)
+		result.append(_apply_shift(new_color))
+	result.append(_apply_shift(end))
+	return result
+
+func _apply_shift(c : Color) -> Color:
 	if Ramp.shift:
 		c.h += Ramp.shift.get_hue()
 		c.s += Ramp.shift.get_sat()
