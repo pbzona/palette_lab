@@ -61,3 +61,4 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 1408, 808 )
 
 [node name="Export" parent="Container" instance=ExtResource( 4 )]
+visible = false
