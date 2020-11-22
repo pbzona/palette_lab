@@ -65,7 +65,7 @@ current_dir = "/Users/phil/Godot/PaletteLab"
 current_file = "~"
 current_path = "/Users/phil/Godot/PaletteLab/~"
 
-[node name="Button" type="Button" parent="CenterContainer/Control"]
+[node name="ExportButton" type="Button" parent="CenterContainer/Control"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -80,4 +80,4 @@ __meta__ = {
 }
 [connection signal="pressed" from="CenterContainer/Control/BrowseButton" to="." method="_on_BrowseButton_pressed"]
 [connection signal="file_selected" from="CenterContainer/Control/FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="pressed" from="CenterContainer/Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/Control/ExportButton" to="." method="_on_ExportButton_pressed"]

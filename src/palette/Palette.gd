@@ -21,6 +21,13 @@ func update_ui() -> void:
 func get_all_ramps() -> Array:
 	return RampContainer.get_children()
 
+func get_color_count() -> int:
+	var ramps = get_all_ramps()
+	var count = 0
+	for ramp in ramps:
+		count += ramp.state.count
+	return count
+
 func _make_ramp_active(ramp):
 	self.active_ramp = ramp
 	if len(get_all_ramps()) > 0:
