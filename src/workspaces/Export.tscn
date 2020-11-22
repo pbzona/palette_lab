@@ -62,8 +62,8 @@ window_title = "Export Palette"
 resizable = true
 access = 2
 current_dir = "/Users/phil/Godot/PaletteLab"
-current_file = "~"
-current_path = "/Users/phil/Godot/PaletteLab/~"
+current_file = "my_palette.png"
+current_path = "/Users/phil/Godot/PaletteLab/my_palette.png"
 
 [node name="ExportButton" type="Button" parent="CenterContainer/Control"]
 anchor_left = 0.5
