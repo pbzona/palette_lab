@@ -13,10 +13,10 @@ func set_palette(p) -> void:
 	self.palette = p
 
 func _export_png(palette, path) -> void:
-	var all_colors = _flatten_colors()
+	var all_colors = palette.get_color_list()
 	
 	var height = 16
-	var width = palette.get_color_count() * height
+	var width = len(all_colors) * height
 	
 	var img = Image.new()
 	img.create(width, height, false, Image.FORMAT_RGB8)
@@ -33,15 +33,7 @@ func _export_png(palette, path) -> void:
 			color_idx += 1
 		loop_counter += 1
 	img.unlock()
-	img.save_png(path)
-
-func _flatten_colors() -> Array:
-	var result = []
-	var ramps = self.palette.get_all_ramps()
-	for r in ramps:
-		for c in r.state.colors:
-			result.append(c)
-	return result 
+	img.save_png(path) 
 
 func _on_BrowseButton_pressed():
 	FilePicker.popup()

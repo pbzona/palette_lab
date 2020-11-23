@@ -22,11 +22,15 @@ func get_all_ramps() -> Array:
 	return RampContainer.get_children()
 
 func get_color_count() -> int:
-	var ramps = get_all_ramps()
-	var count = 0
-	for ramp in ramps:
-		count += ramp.state.count
-	return count
+	return len(get_color_list())
+
+func get_color_list() -> Array:
+	var result = []
+	var ramps = self.get_all_ramps()
+	for r in ramps:
+		for c in r.state.colors:
+			result.append(c)
+	return result 
 
 func _make_ramp_active(ramp):
 	self.active_ramp = ramp
