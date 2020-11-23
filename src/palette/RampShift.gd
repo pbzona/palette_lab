@@ -13,40 +13,40 @@ func _init(ref) -> void:
 	self.Ramp = ref
 
 func get_hue() -> float:
-	return self.hue
+	return hue
 
 func set_hue(h : float) -> void:
-	self.hue = h
+	hue = h
 
 func get_sat() -> float:
-	return self.sat
+	return sat
 
 func set_sat(s : float) -> void:
-	self.sat = s
+	sat = s
 
 func get_val() -> float:
-	return self.val
+	return val
 
 func set_val(v : float) -> void:
-	self.val = v
+	val = v
 
 func get_red() -> float:
-	return self.red
+	return red
 
 func set_red(r : float) -> void:
-	self.red = r
+	red = r
 
 func get_green() -> float:
-	return self.green
+	return green
 
 func set_green(g : float) -> void:
-	self.green = g
+	green = g
 
 func get_blue() -> float:
-	return self.blue
+	return blue
 
 func set_blue(b : float) -> void:
-	self.blue = b
+	blue = b
 
 func reset_all() -> void:
 	self.hue = 0
