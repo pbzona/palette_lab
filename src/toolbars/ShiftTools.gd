@@ -3,6 +3,10 @@ extends Control
 signal SHIFT_CHANGED
 
 var shift = null
+var app_state = null
+
+func set_state(data) -> void:
+	app_state = data
 
 func update_ui() -> void:
 	$ControlContainer/HueControl/HueSlider.value = self.shift.get_hue()

@@ -3,6 +3,11 @@ extends Control
 signal CHANGED_LEFT_COLOR
 signal CHANGED_RIGHT_COLOR
 
+var app_state = null
+
+func set_state(data) -> void:
+	app_state = data
+
 func set_picker_colors(left_color : Color, right_color : Color) -> void:
 	$VBoxContainer/LeftColorContainer/LeftColorPicker.color = left_color
 	$VBoxContainer/RightColorContainer/RightColorPicker.color = right_color

@@ -7,6 +7,7 @@ const Ramp = preload("res://src/palette/Ramp.tscn")
 
 var active_ramp = null
 var shift = null
+var app_state = null
 
 onready var RampContainer = $ScrollBox/RampContainer
 
@@ -14,6 +15,9 @@ func _ready():
 	var default_ramp = _create_new_ramp()
 	_make_ramp_active(default_ramp)
 	_add_ramp_to_ui(default_ramp)
+
+func set_state(data) -> void:
+	app_state = data
 
 func update_ui() -> void:
 	pass
@@ -46,6 +50,7 @@ func _create_new_ramp() -> PackedScene:
 	ramp.connect("RAMP_DELETED", self, "_notify_watchers")
 	ramp.connect("RAMP_SELECTED", self, "_make_ramp_active")
 	ramp.connect("RAMP_MODIFIED", self, "_notify_watchers")
+	ramp.set_state(self.app_state)
 	return ramp
 
 func _notify_watchers() -> void:

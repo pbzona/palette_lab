@@ -2,12 +2,16 @@ extends Control
 
 var export_path : String = ''
 var palette = null
+var app_state = null
 
 onready var FilePicker = $CenterContainer/Control/FileDialog
 onready var ExportPath = $CenterContainer/Control/ExportPath
 
 func _ready():
 	ExportPath.text = export_path
+
+func set_state(data) -> void:
+	app_state = data
 
 func set_palette(p) -> void:
 	self.palette = p

@@ -17,6 +17,7 @@ const default_ramp = [
 
 var state = null
 var shift = null
+var app_state = null
 
 func _init():
 	state = RampState.new(self)
@@ -25,6 +26,9 @@ func _init():
 func _ready():
 	_initialize_ramp()
 	update_ui()
+
+func set_state(data) -> void:
+	app_state = data
 
 func update_ui() -> void:
 	$CountLabel.text = str($CountSlider.value)

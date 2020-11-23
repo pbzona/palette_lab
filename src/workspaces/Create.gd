@@ -2,6 +2,8 @@ extends Control
 
 signal PALETTE_UPDATED
 
+var app_state = null
+
 onready var palette = $Container/Palette
 onready var color_tools = $Container/ColorTools
 onready var shift_tools = $Container/ShiftTools
@@ -9,6 +11,12 @@ onready var shift_tools = $Container/ShiftTools
 func _ready():
 	_connect_all_signals()
 	_update_toolbars()
+
+func set_state(data) -> void:
+	app_state = data
+	$Container/Palette.set_state(data)
+	$Container/ColorTools.set_state(data)
+	$Container/ShiftTools.set_state(data)
 
 func _connect_all_signals() -> void:
 	color_tools.connect("CHANGED_LEFT_COLOR", self, "_on_left_color_changed")
