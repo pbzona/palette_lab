@@ -44,4 +44,8 @@ func _on_FileDialog_file_selected(path):
 
 func _on_ExportButton_pressed():
 	if self.palette and self.export_path:
-		_export_png(self.palette, self.export_path)
+		var err = _export_png(self.palette, self.export_path)
+		if err:
+			$ErrorConfirmation.popup()
+		else:
+			$SaveConfirmation.popup()
